@@ -1,0 +1,55 @@
+let display = null;
+let objectPath = searchJsonPath();
+let jsonObj = searchJsonObj();
+console.log(`json : ${jsonObj}`)
+console.log(`objpath : ${objectPath}`)
+objectPath = parseUrl();
+
+let query = useQuery();
+console.log(query.get("toto"))
+
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
+function searchJsonPath() {
+  let tmp = url.split("-");
+  return tmp[0];
+}
+
+function searchJsonObj() {
+  let tmp = url.split("-");
+  return tmp[1];
+}
+
+function parseUrl() {
+  let tmp = objectPath.split("/");
+  tmp = tmp.filter(item => (item !== "" && item !== "browse"));
+  return tmp;
+}
+
+function readJson() {
+  let tmp = [...datas];
+  try{
+    for (let i = 0; i < objectPath.length; i++){
+      tmp = tmp.find(item => item.name === objectPath[i]).content;
+    }
+  }
+  catch(err){
+    return undefined;
+  }    
+  return tmp;
+}
+const content = readJson();
+if (!content){
+  display = <h1>file not found !</h1>;
+} else  if (content[0].type === "dir"){
+  display = content.map(item => {
+    return(
+      <button key={`${item.name} button`}><Link to={`${url}/${item.name}`}>{item.name}</Link></button>
+    );
+  });
+} else {
+  display = null;
+  window.location.href = "http://localhost:3000/displayer";
+}  
