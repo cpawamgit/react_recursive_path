@@ -1,5 +1,5 @@
 import './App.css';
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,35 +7,21 @@ import {
   Link,
   Redirect,
   useRouteMatch,
-  useLocation
+  useLocation,
+  useParams
 } from "react-router-dom";
 import datas from "./site.json";
+import { Document, Page } from 'react-pdf';
+import { pdfjs } from 'react-pdf';
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-function App(){
-    return (
-      <div>
-        {<RecursiveExample />}
-      </div>
-    )
+function App() {
+  return (
+    <div>
+      {<RecursiveExample />}
+    </div>
+  )
 }
-
-
-// Sometimes you don't know all the possible routes
-// for your application up front; for example, when
-// building a file-system browsing UI or determining
-// URLs dynamically based on data. In these situations,
-// it helps to have a dynamic router that is able
-// to generate routes as needed at runtime.
-//
-// This example lets you drill down into a friends
-// list recursively, viewing each user's friend list
-// along the way. As you drill down, notice each segment
-// being added to the URL. You can copy/paste this link
-// to someone else and they will see the same UI.
-//
-// Then click the back button and watch the last
-// segment of the URL disappear along with the last
-// friend list.
 
 function RecursiveExample() {
   return (
@@ -45,54 +31,59 @@ function RecursiveExample() {
           <Browse />
         </Route>
         <Route exact path="/">
-          <Redirect to={`/browse?dirPath=folder1&type=dir`}/>
+          <Redirect to={`/browse/sitePdfs`} />
         </Route>
       </Switch>
     </Router>
   );
 }
 
-function Browse() {
-  let { url } = useRouteMatch();
+function Browse(params) {
+  let { url, path } = useRouteMatch();
+  let { id } = useParams();
   let query = new URLSearchParams(useLocation().search);
-  let dirPath = query.get("dirPath").split("/");
-  let type = query.get("type");
+  let isFile = query.has("file");
+  let actualPath = useLocation().pathname;
   let jsonPath = [...datas];
-  
-  if(type === "dir"){    
-    for (let i = 0; i < dirPath.length; i++){
+  let dirPath = url.split("/");
+  dirPath = dirPath.slice(2);
+  let backButton = null;
+
+  if (dirPath.length > 1) {
+    let tmp = url.split("/");
+    tmp.pop();
+    tmp = tmp.join("/");
+    backButton = <button><Link to={tmp}>Back</Link></button>
+  }
+
+  try {
+    for (let i = 0; i < dirPath.length; i++) {
       jsonPath = jsonPath.find(item => item.name === dirPath[i]).content;
     }
-    type = jsonPath[0].content[0].type === "dir" ? "dir" : "file";
-    const toDisplay = jsonPath.map(item => {
-      return(
-        <button><Link to={`${url}?dirPath=${dirPath.join("/")}/${item.name}&type=${type}`}>{item.name}</Link></button>
-      )
-    })
+
+  } catch (err) {
+    return <h1>File not found / Fichier non trouvé</h1>
+  }
+
+
+
+  if (!isFile) {
+    let buttons = jsonPath.map(item => {
+      if (item.type === "dir") {
+        return (
+          <button><Link to={`${url}/${item.name}`}>{item.name}</Link></button>
+        );
+      } else {
+        return (
+          <button><Link to={`${url}?file=${item.name}`}>{item.name}</Link></button>
+        );
+      }
+    });
     return (
       <div>
-        {toDisplay}
+        {actualPath === url && buttons}
+        {actualPath === url && backButton}
         <Switch>
-          <Route path={`${url}/:id`}>
-            <Browse />
-          </Route>
-        </Switch>
-      </div>
-  
-    );
-  } else if (!query.has("display")) {
-    for (let i = 0; i < dirPath.length; i++){
-      jsonPath = jsonPath.find(item => item.name === dirPath[i]).content;
-    }
-    const toDisplay = jsonPath.map(item => {
-      return(
-        <button><Link to={`${url}/display?dirPath=${dirPath.join("/")}/${item.name}&display=true`}>{item.name}</Link></button>
-      )
-    })
-    return(
-      <div>
-      {toDisplay}
-      <Switch>
           <Route path={`${url}/:id`}>
             <Browse />
           </Route>
@@ -100,39 +91,83 @@ function Browse() {
       </div>
     );
   } else {
-    for (let i = 0; i < dirPath.length - 1; i++){
-      jsonPath = jsonPath.find(item => item.name === dirPath[i]).content;
-    }
-    let tmp = [...dirPath];
-    tmp.pop();
-    const toDisplay = jsonPath.map(item => {
-      return(
-        <button><Link to={`${url}/display?dirPath=${tmp.join("/")}/${item.name}&display=true`}>{item.name}</Link></button>
-        
-      )
-    });
-    return(
+    let buttons = jsonPath.map(item => {
+      return (
+        <button><Link to={`${url}?file=${item.name}`}>{item.name}</Link></button>
+      );
+    })
+    let fName = query.get("file");
+    let isDisplayed = actualPath === url ? true : false;
+    console.log(`dirPath : ${dirPath}`)
+    console.log(`url : ${url}`)
+    console.log(`isDisplayed : ${isDisplayed}`)
+    return (
       <div>
-      {toDisplay}
-      <Switch>
+        {isDisplayed && buttons}
+        {isDisplayed && backButton}
+        {isDisplayed && <Displayer fName={`${process.env.PUBLIC_URL}/${dirPath.join("/")}/${fName}`} />}
+        <Switch>
           <Route path={`${url}/:id`}>
-            <Display path={dirPath}/>
+            <Browse />
           </Route>
         </Switch>
       </div>
-    );
+    )
   }
-  
-  
 }
 
-function Display(props) {
-  const toDisplay = require(`../public/${props.path.join("/")}`);
-  return(
-    <div>
-      <h1>{toDisplay}</h1>
-    </div>
-  )
+function Displayer(props) {
+  const [numPages, setNumPages] = useState(null);
+  const [pageNumber, setPageNumber] = useState(1);
+
+  function onDocumentLoadSuccess({ numPages }) {
+    setNumPages(numPages);
+    setPageNumber(1);
+  }
+
+  function changePage(offset) {
+    setPageNumber(prevPageNumber => prevPageNumber + offset);
+  }
+
+  function previousPage() {
+    changePage(-1);
+  }
+
+  function nextPage() {
+    changePage(1);
+  }
+
+  return (
+    <>
+      <Document
+        file={props.fName}
+        onLoadSuccess={onDocumentLoadSuccess}
+      >
+        <Page pageNumber={pageNumber}
+          scale={0.8} />
+      </Document>
+      <div>
+        <p>
+          Page {pageNumber || (numPages ? 1 : '--')} of {numPages || '--'}
+        </p>
+        <button
+          type="button"
+          disabled={pageNumber <= 1}
+          onClick={previousPage}
+        >
+          Previous
+        </button>
+        <button
+          type="button"
+          disabled={pageNumber >= numPages}
+          onClick={nextPage}
+        >
+          Next
+        </button>
+        <h1>{props.fName}</h1>
+      </div>
+    </>
+  );
 }
 
 export default App;

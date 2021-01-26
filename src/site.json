@@ -1,36 +1,843 @@
 [
-    {
-        "type": "dir",
-        "name": "folder1",
-        "content": [
-            {
-                "type": "dir",
-                "name": "sub1",
-                "content": [
-                    {
-                        "type": "file",
-                        "name": "file1.js"
-                    },
-                    {
-                        "type": "file",
-                        "name": "file2.js"
-                    }
-                ]
-            },
-            {
-                "type": "dir",
-                "name": "sub2",
-                "content": [
-                    {
-                        "type": "file",
-                        "name": "file1.js"
-                    },
-                    {
-                        "type": "file",
-                        "name": "file2.js"
-                    }
-                ]
-            }
-        ]
-    }
+  {"type":"dir","name":"sitePdfs","content":[
+    {"type":"dir","name":"Opus 1","content":[
+      {"type":"dir","name":"Le concert des profs","content":[
+        {"type":"file","name":"2-Basson.PDF"},
+        {"type":"file","name":"3 Pièce clarinette ut.pdf"},
+        {"type":"file","name":"3 Pièce glockenspiel.pdf"},
+        {"type":"file","name":"3 Pièce piano.pdf"},
+        {"type":"file","name":"3 pièces 2 harpe.pdf"},
+        {"type":"file","name":"3 pièces percussion.pdf"},
+        {"type":"file","name":"clarinette si b.pdf"},
+        {"type":"file","name":"conducteur.pdf"},
+        {"type":"file","name":"cuivres.pdf"},
+        {"type":"file","name":"Flute.pdf"}
+      ]},
+      {"type":"dir","name":"Musique de scene","content":[
+        {"type":"file","name":"Bn Fin A eng.pdf"},
+        {"type":"file","name":"Cl 1 fin A eng.pdf"},
+        {"type":"file","name":"Cl 2 fin A eng.pdf"},
+        {"type":"file","name":"Conducteur.pdf"},
+        {"type":"file","name":"Cor fin A eng.pdf"},
+        {"type":"file","name":"Fl Fin A eng.pdf"},
+        {"type":"file","name":"Percu fin A eng.pdf"},
+        {"type":"file","name":"Piano fin A eng.pdf"},
+        {"type":"file","name":"Sax Alt fin A eng.pdf"},
+        {"type":"file","name":"Sax Bar fin A eng.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 2","content":[
+      {"type":"dir","name":"Duo","content":[
+        {"type":"file","name":"basson A3.pdf"},
+        {"type":"file","name":"duo A4 basson.pdf"},
+        {"type":"file","name":"duo A4 Vlc.pdf"},
+        {"type":"file","name":"duo.pdf"},
+        {"type":"file","name":"Violoncelle A3.pdf"}
+      ]},
+      {"type":"dir","name":"Trio anche","content":[
+        {"type":"file","name":"Basson fin A eng.pdf"},
+        {"type":"file","name":"Clarinette fin A eng.pdf"},
+        {"type":"file","name":"Conducteur Fin B eng.pdf"},
+        {"type":"file","name":"Hautbois fin A eng.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"opus 3","content":[
+      {"type":"dir","name":"Lento et presto","content":[
+        {"type":"file","name":"Altos.pdf"},
+        {"type":"file","name":"Basson.pdf"},
+        {"type":"file","name":"Contrebasses.pdf"},
+        {"type":"file","name":"Lento et presto conducteur.pdf"},
+        {"type":"file","name":"timbales.pdf"},
+        {"type":"file","name":"Violoncelles.pdf"},
+        {"type":"file","name":"Violons1.pdf"},
+        {"type":"file","name":"Violons2.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"opus 4","content":[
+      {"type":"dir","name":"Loin","content":[
+        {"type":"file","name":"BARYTON.pdf"},
+        {"type":"file","name":"Loin piano.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 5","content":[
+      {"type":"dir","name":"Sonatine picturale","content":[
+        {"type":"file","name":"sonatine picturale.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 6","content":[
+      {"type":"file","name":"ragtime fin A3.pdf"},
+      {"type":"file","name":"ragtime fin A4.pdf"},
+      {"type":"file","name":"Sonatine Drolatique.pdf"}
+    ]},
+    {"type":"dir","name":"opus 7","content":[
+      {"type":"dir","name":"5 pieces suaves","content":[
+        {"type":"file","name":"5 pieces suaves.pdf"}
+      ]},
+      {"type":"dir","name":"8 petites piéces","content":[
+        {"type":"file","name":"8 petite pieces.pdf"}
+      ]},
+      {"type":"dir","name":"L infant","content":[
+        {"type":"file","name":"LINFANT a3.pdf"},
+        {"type":"file","name":"LINFANT A4.pdf"}
+      ]},
+      {"type":"dir","name":"Spleen","content":[
+        {"type":"file","name":"spleen piano.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"opus 8","content":[
+      {"type":"dir","name":"20 etudes de concert","content":[
+        {"type":"file","name":"20 ETUDES DE CONCERT.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"opus 9","content":[
+      {"type":"dir","name":"Andante et allegro","content":[
+        {"type":"file","name":"andante et alegro piano.pdf"},
+        {"type":"file","name":"andante et allegro basson.pdf"},
+        {"type":"file","name":"PAGE BASSON A3 andante et allegro.pdf"}
+      ]},
+      {"type":"dir","name":"Fantaisie romantique","content":[
+        {"type":"file","name":"Fantaisie romantique clarinette.pdf"},
+        {"type":"file","name":"Fantaisie romantique .pdf"}
+      ]},
+      {"type":"dir","name":"Laconique sonatine","content":[
+        {"type":"file","name":"Laconique sonatine.pdf"},
+        {"type":"file","name":"Laconique Vlc.pdf"}
+      ]},
+      {"type":"dir","name":"Rapsodie fantasque","content":[
+        {"type":"file","name":"Basson.pdf"},
+        {"type":"file","name":"Piano.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"opus 10","content":[
+      {"type":"file","name":"Sonate piano.pdf"}
+    ]},
+    {"type":"dir","name":"Opus 11","content":[
+      {"type":"dir","name":"Badinage","content":[
+        {"type":"file","name":"Ptit piece  en do 1-Basson.pdf"},
+        {"type":"file","name":"Ptit piece  en do 1 piano.pdf"}
+      ]},
+      {"type":"dir","name":"L'aurore","content":[
+        {"type":"file","name":"Aurore.pdf"},
+        {"type":"file","name":"L'aurore a3.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 12","content":[
+      {"type":"dir","name":"2 milans","content":[
+        {"type":"file","name":"2 milans A3.pdf"},
+        {"type":"file","name":"2 MILANS.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 13","content":[
+      {"type":"dir","name":"Bacchanale","content":[
+        {"type":"file","name":"1 et 2 cor.pdf"},
+        {"type":"file","name":"2 et 4 cor.pdf"},
+        {"type":"file","name":"Altos.pdf"},
+        {"type":"file","name":"basson.pdf"},
+        {"type":"file","name":"Clarinette basses.pdf"},
+        {"type":"file","name":"Clarinette.pdf"},
+        {"type":"file","name":"Conducteur.pdf"},
+        {"type":"file","name":"Contrebasses.pdf"},
+        {"type":"file","name":"Contrebasson.pdf"},
+        {"type":"file","name":"Cor anglais.pdf"},
+        {"type":"file","name":"Flute.pdf"},
+        {"type":"file","name":"Harpe.pdf"},
+        {"type":"file","name":"Hautbois.pdf"},
+        {"type":"file","name":"Percussion.pdf"},
+        {"type":"file","name":"Piano.pdf"},
+        {"type":"file","name":"Piccolo.pdf"},
+        {"type":"file","name":"Timbales.pdf"},
+        {"type":"file","name":"Trombone 1.pdf"},
+        {"type":"file","name":"Trombone 2 et 3.pdf"},
+        {"type":"file","name":"Trombone 4 et tuba.pdf"},
+        {"type":"file","name":"Trompette 1 et 2.pdf"},
+        {"type":"file","name":"Trompette 3 et 4.pdf"},
+        {"type":"file","name":"V1.pdf"},
+        {"type":"file","name":"V2.pdf"},
+        {"type":"file","name":"Violoncelles.pdf"},
+        {"type":"file","name":"Xylophone.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 14","content":[
+      {"type":"dir","name":"Sonate americaine","content":[
+        {"type":"file","name":"Sonate américaine basson.pdf"},
+        {"type":"file","name":"sonate américaine.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 15","content":[
+      {"type":"dir","name":"Improvisaton","content":[
+        {"type":"file","name":"improvisation A3.pdf"},
+        {"type":"file","name":"improvisation.pdf"}
+      ]},
+      {"type":"dir","name":"Peregrinations","content":[
+        {"type":"file","name":"Peregrinations enreg.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 16","content":[
+      {"type":"dir","name":"Version 2000","content":[
+        {"type":"file","name":"Piano.pdf"},
+        {"type":"file","name":"Violoncelle.pdf"}
+      ]},
+      {"type":"dir","name":"version 2001 trio","content":[
+        {"type":"file","name":"trio islandaise Piano.pdf"},
+        {"type":"file","name":"trio islandaise violoncelle.pdf"},
+        {"type":"file","name":"trio islandaise violon.pdf"}
+      ]},
+      {"type":"dir","name":"version 2003","content":[
+        {"type":"file","name":"islandaise 2003.pdf"},
+        {"type":"file","name":"Islandaise violoncelle 2003.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 17","content":[
+      {"type":"dir","name":"Astarte pour flute","content":[
+        {"type":"file","name":"Astarté A3.pdf"},
+        {"type":"file","name":"Astarté A4.pdf"}
+      ]},
+      {"type":"dir","name":"Ishtar","content":[
+        {"type":"file","name":"Ihstar.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 18","content":[
+      {"type":"dir","name":"Broceliande","content":[
+        {"type":"file","name":"basson.pdf"},
+        {"type":"file","name":"clarinette.pdf"},
+        {"type":"file","name":"conducteur.pdf"},
+        {"type":"file","name":"cor.pdf"},
+        {"type":"file","name":"flute.pdf"},
+        {"type":"file","name":"Hautbois.pdf"}
+      ]},
+      {"type":"dir","name":"Broceliande Version 2006","content":[
+        {"type":"dir","name":"Basson","content":[
+          {"type":"file","name":"Basson.pdf"}
+        ]},
+        {"type":"dir","name":"Cl","content":[
+          {"type":"file","name":"Clarinette eng.pdf"},
+          {"type":"file","name":"Clarinette.pdf"}
+        ]},
+        {"type":"dir","name":"Conducteur","content":[
+          {"type":"file","name":"conducteur.pdf"}
+        ]},
+        {"type":"dir","name":"Cor","content":[
+          {"type":"file","name":"Cor eng.pdf"},
+          {"type":"file","name":"Cor.pdf"}
+        ]},
+        {"type":"dir","name":"Fl","content":[
+          {"type":"file","name":"flute.pdf"},
+          {"type":"file","name":"flute rng.pdf"}
+        ]},
+        {"type":"dir","name":"Htb","content":[
+          {"type":"file","name":"Htb eng.pdf"},
+          {"type":"file","name":"Htb.pdf"}
+        ]}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 19","content":[
+      {"type":"dir","name":"Sinfonietta","content":[
+        {"type":"file","name":"altos.pdf"},
+        {"type":"file","name":"clavecin.pdf"},
+        {"type":"file","name":"conducteur.pdf"},
+        {"type":"file","name":"contrebasses.pdf"},
+        {"type":"file","name":"violoncelles.pdf"},
+        {"type":"file","name":"violons 1.pdf"},
+        {"type":"file","name":"violons  2.pdf"}
+      ]},
+      {"type":"dir","name":"Version 2008","content":[
+        {"type":"dir","name":"Altos","content":[
+          {"type":"file","name":"Altos.pdf"}
+        ]},
+        {"type":"dir","name":"Basson 1","content":[
+          {"type":"file","name":"Basson 1.pdf"}
+        ]},
+        {"type":"dir","name":"Basson 2","content":[
+          {"type":"file","name":"Basson 2.pdf"}
+        ]},
+        {"type":"dir","name":"Cb","content":[
+          {"type":"file","name":"Contrebasses.pdf"}
+        ]},
+        {"type":"dir","name":"Conducteur","content":[
+          {"type":"file","name":"SINFONIETA conducteur.pdf"}
+        ]},
+        {"type":"dir","name":"Fl 1","content":[
+          {"type":"file","name":"Flute 1.pdf"}
+        ]},
+        {"type":"dir","name":"Fl 2","content":[
+          {"type":"file","name":"Fl 2.pdf"}
+        ]},
+        {"type":"dir","name":"Hrp","content":[
+          {"type":"file","name":"Harpe.pdf"}
+        ]},
+        {"type":"dir","name":"Htb 1","content":[
+          {"type":"file","name":"Htb 1.pdf"}
+        ]},
+        {"type":"dir","name":"Htb 2","content":[
+          {"type":"file","name":"Htb 2.pdf"}
+        ]},
+        {"type":"dir","name":"V 1","content":[
+          {"type":"file","name":"V 1.pdf"}
+        ]},
+        {"type":"dir","name":"V 2","content":[
+          {"type":"file","name":"V 2.pdf"}
+        ]},
+        {"type":"dir","name":"Vlc","content":[
+          {"type":"file","name":"Vlc.pdf"}
+        ]}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 20","content":[
+      {"type":"dir","name":"Figures dans la ville","content":[
+        {"type":"dir","name":"Dans la ville","content":[
+          {"type":"dir","name":"1ere mise en page","content":[
+            {"type":"file","name":"Dans la villeTRP .pdf"},
+            {"type":"file","name":"figure dans la ville PN.pdf"}
+          ]},
+          {"type":"dir","name":"2ème mise en page","content":[
+            {"type":"file","name":"Dans la villeTRP format resséré.pdf"},
+            {"type":"file","name":"figure dans la ville PN  format resséré.pdf"}
+          ]}
+        ]},
+        {"type":"dir","name":"Dans la ville version 4 mains pianos","content":[
+          {"type":"file","name":"villle 4 mains.pdf"}
+        ]}
+      ]},
+      {"type":"dir","name":"Ivresses","content":[
+        {"type":"file","name":"ivresses Piano.pdf"},
+        {"type":"file","name":"ivresses sax .pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 21","content":[
+      {"type":"dir","name":"Largo et presto","content":[
+        {"type":"file","name":"Largo et presto Htb.pdf"},
+        {"type":"file","name":"Largo et presto piano.pdf"}
+      ]},
+      {"type":"dir","name":"Rapsodie exotique","content":[
+        {"type":"file","name":"9 doigt A3.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 22","content":[
+      {"type":"dir","name":"Cimaises","content":[
+        {"type":"file","name":"Cimaise.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 23","content":[
+      {"type":"dir","name":"Le tsarevitch et le dragon","content":[
+        {"type":"file","name":"Altos.pdf"},
+        {"type":"file","name":"bassons.pdf"},
+        {"type":"file","name":"Clarinettes.pdf"},
+        {"type":"file","name":"contrebasses.pdf"},
+        {"type":"file","name":"cor 1et 3.pdf"},
+        {"type":"file","name":"Cor 2et 4.pdf"},
+        {"type":"file","name":"cor anglais.pdf"},
+        {"type":"file","name":"Flutes.pdf"},
+        {"type":"file","name":"Hautbois 1et 2.pdf"},
+        {"type":"file","name":"LE TSAREVITCH CONDUCTEUR A3.pdf"},
+        {"type":"file","name":"LE TSAREVITCH CONDUCTEUR A4.pdf"},
+        {"type":"file","name":"Percussions.pdf"},
+        {"type":"file","name":"Timbales.pdf"},
+        {"type":"file","name":"Trombonne 1et 2.pdf"},
+        {"type":"file","name":"Trombonne 3 et 4.pdf"},
+        {"type":"file","name":"Trompette 1et 2.pdf"},
+        {"type":"file","name":"trompette 3 et 4.pdf"},
+        {"type":"file","name":"Tuba.pdf"},
+        {"type":"file","name":"violon 1.pdf"},
+        {"type":"file","name":"Violoncelles.pdf"},
+        {"type":"file","name":"Violons 2.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 24","content":[
+      {"type":"dir","name":"9 miniatures","content":[
+        {"type":"file","name":"9 miniatures Clarinette.pdf"},
+        {"type":"file","name":"9 Miniatures Piano.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 25","content":[
+      {"type":"dir","name":"Eshu","content":[
+        {"type":"file","name":"CLARINETTE ALTO 1 .pdf"},
+        {"type":"file","name":"CLARINETTE ALTO 2.pdf"},
+        {"type":"file","name":"CLARINETTE BASSE 1.pdf"},
+        {"type":"file","name":"CLARINETTE BASSE 2.pdf"},
+        {"type":"file","name":"CLARINETTE EN LA 1.pdf"},
+        {"type":"file","name":"CLARINETTE EN LA 2.pdf"},
+        {"type":"file","name":"CLARINETTE EN LA 3.pdf"},
+        {"type":"file","name":"CLARINETTE SI B 1.pdf"},
+        {"type":"file","name":"CLARINETTE SI B 2.pdf"},
+        {"type":"file","name":"CLARINETTE SI B 3.pdf"},
+        {"type":"file","name":"CLARINETTE SI B 4.pdf"},
+        {"type":"file","name":"CLARINETTE SI b 5.pdf"},
+        {"type":"file","name":"CL CONTREBASSES SI B.pdf"},
+        {"type":"file","name":"conducteur Eshu2002.pdf"},
+        {"type":"file","name":"PETITE CLARINETTE MI B 1.pdf"},
+        {"type":"file","name":"PETITE CLARINETTE MI B 2.pdf"},
+        {"type":"file","name":"TUMBAS.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 26","content":[
+      {"type":"dir","name":"Liemilia","content":[
+        {"type":"dir","name":"Conducteur","content":[
+          {"type":"file","name":"limilia a3.pdf"},
+          {"type":"file","name":"limilia a4.pdf"}
+        ]},
+        {"type":"dir","name":"Materiel","content":[
+          {"type":"file","name":"Altos.pdf"},
+          {"type":"file","name":"basson 1.pdf"},
+          {"type":"file","name":"basson 2.pdf"},
+          {"type":"file","name":"basson3.pdf"},
+          {"type":"file","name":"Clarinette 1.pdf"},
+          {"type":"file","name":"Clarinette 2.pdf"},
+          {"type":"file","name":"clarinette basse.pdf"},
+          {"type":"file","name":"contrebasses.pdf"},
+          {"type":"file","name":"contrebasson.pdf"},
+          {"type":"file","name":"cor 1.pdf"},
+          {"type":"file","name":"cor 2.pdf"},
+          {"type":"file","name":"cor 3.pdf"},
+          {"type":"file","name":"cor 4.pdf"},
+          {"type":"file","name":"cor anglais.pdf"},
+          {"type":"file","name":"Flute 1.pdf"},
+          {"type":"file","name":"flute 2.pdf"},
+          {"type":"file","name":"flute en sol.pdf"},
+          {"type":"file","name":"Harpe.pdf"},
+          {"type":"file","name":"Hautbois 1.pdf"},
+          {"type":"file","name":"Hautbois 2.pdf"},
+          {"type":"file","name":"Percussions.pdf"},
+          {"type":"file","name":"Petit clarinette mi b.pdf"},
+          {"type":"file","name":"Piano.pdf"},
+          {"type":"file","name":"Piccollo.pdf"},
+          {"type":"file","name":"Timbales.pdf"},
+          {"type":"file","name":"Trombone 1.pdf"},
+          {"type":"file","name":"Trombone 2.pdf"},
+          {"type":"file","name":"Trombone 3.pdf"},
+          {"type":"file","name":"Trombone 4.pdf"},
+          {"type":"file","name":"trompette 1.pdf"},
+          {"type":"file","name":"trompette 2.pdf"},
+          {"type":"file","name":"trompette 3.pdf"},
+          {"type":"file","name":"trompette 4.pdf"},
+          {"type":"file","name":"Tuba.pdf"},
+          {"type":"file","name":"Violoncelles.pdf"},
+          {"type":"file","name":"Violons 1.pdf"},
+          {"type":"file","name":"Violons 2.pdf"},
+          {"type":"file","name":"Xylophone.pdf"}
+        ]}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 27","content":[
+      {"type":"file","name":"REVES CLARINETTE.pdf"},
+      {"type":"file","name":"REVES PIANO.pdf"}
+    ]},
+    {"type":"dir","name":"Opus 28","content":[
+      {"type":"dir","name":"La lame et la manche","content":[
+        {"type":"dir","name":"Conducteur","content":[
+          {"type":"file","name":"La lame et le manche conducteur.pdf"}
+        ]},
+        {"type":"dir","name":"Materiel","content":[
+          {"type":"file","name":"Basson.pdf"},
+          {"type":"file","name":"Batterie 1.pdf"},
+          {"type":"file","name":"Batterie 2.pdf"},
+          {"type":"file","name":"Batterie 3.pdf"},
+          {"type":"file","name":"Batterie 4.pdf"},
+          {"type":"file","name":"Batterie 5.pdf"},
+          {"type":"file","name":"Batterie 6.pdf"},
+          {"type":"file","name":"Celesta.pdf"},
+          {"type":"file","name":"Cloches.pdf"},
+          {"type":"file","name":"Contrebasses.pdf"},
+          {"type":"file","name":"Cor.pdf"},
+          {"type":"file","name":"Glockenspiel.pdf"},
+          {"type":"file","name":"Hautbois eng.pdf"},
+          {"type":"file","name":"Piano 1.pdf"},
+          {"type":"file","name":"Piano 2.pdf"},
+          {"type":"file","name":"Timbales.pdf"},
+          {"type":"file","name":"Trombone.pdf"},
+          {"type":"file","name":"Trompette.pdf"},
+          {"type":"file","name":"Tuba.pdf"},
+          {"type":"file","name":"Vibraphone.pdf"},
+          {"type":"file","name":"Violoncelle 1.pdf"},
+          {"type":"file","name":"Violoncelle 2.pdf"},
+          {"type":"file","name":"Violoncelle 3.pdf"},
+          {"type":"file","name":"Violoncelle 4.pdf"},
+          {"type":"file","name":"Xylophone.pdf"}
+        ]}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 29","content":[
+      {"type":"dir","name":"Fete","content":[
+        {"type":"file","name":"Fete.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 30","content":[
+      {"type":"file","name":"L'aube de la vie.pdf"}
+    ]},
+    {"type":"dir","name":"Opus 31","content":[
+      {"type":"dir","name":"3 pieces autour de David","content":[
+        {"type":"file","name":"3 pieces Alto.pdf"},
+        {"type":"file","name":"3 pieces autour de David conducteur.pdf"},
+        {"type":"file","name":"3 pieces Clarinette.pdf"},
+        {"type":"file","name":"3 pieces Contrebasse.pdf"},
+        {"type":"file","name":"3 pieces Percussions.pdf"},
+        {"type":"file","name":"3 pieces Piano.pdf"},
+        {"type":"file","name":"3 pieces V 1.pdf"},
+        {"type":"file","name":"3 pieces V 2.pdf"},
+        {"type":"file","name":"3 pieces Violoncelle.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 32","content":[
+      {"type":"dir","name":"2 small danses","content":[
+        {"type":"file","name":"Bassoon.pdf"},
+        {"type":"file","name":"Piano.pdf"}
+      ]},
+      {"type":"dir","name":"3 cartes postales","content":[
+        {"type":"file","name":"cl.pdf"},
+        {"type":"file","name":"Htb.pdf"},
+        {"type":"file","name":"Piano.pdf"},
+        {"type":"file","name":"vlc.pdf"}
+      ]},      
+      {"type":"dir","name":"Complainte jeux et danse","content":[
+        {"type":"file","name":"Basson.pdf"},
+        {"type":"file","name":"Clarinette.pdf"},
+        {"type":"file","name":"Piano.pdf"}
+      ]},
+      {"type":"dir","name":"Duo","content":[
+        {"type":"file","name":"Duo.pdf"}
+      ]},
+      {"type":"dir","name":"Duo fantasque","content":[
+        {"type":"file","name":"Duo fantasque.pdf"}
+      ]},
+      {"type":"dir","name":"Mini quatuor","content":[
+        {"type":"file","name":"Alto jouant V2.pdf"},
+        {"type":"file","name":"Alto.pdf"},
+        {"type":"file","name":"conducteur.pdf"},
+        {"type":"file","name":"V1.pdf"},
+        {"type":"file","name":"V2.pdf"},
+        {"type":"file","name":"Vlc.pdf"}
+      ]},
+      {"type":"dir","name":"Nostalgie","content":[
+        {"type":"file","name":"Nostalgie piano.pdf"},
+        {"type":"file","name":"Nostalgie violoncelle.pdf"},
+        {"type":"file","name":"Nostalgie violon.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 33","content":[
+      {"type":"dir","name":"Version Hautbois","content":[
+        {"type":"file","name":"Rapsodie HTB.pdf"},
+        {"type":"file","name":"Rapsodie piano.pdf"}
+      ]},
+      {"type":"dir","name":"Verssion Sax soprano","content":[
+        {"type":"file","name":"Rapsodie piano.pdf"},
+        {"type":"file","name":"Rapsodie sax.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 34","content":[
+      {"type":"dir","name":"Version da camera","content":[
+        {"type":"file","name":"Alto II.pdf"},
+        {"type":"file","name":"Alto I.pdf"},
+        {"type":"file","name":"Conducteur.pdf"},
+        {"type":"file","name":"Contrebasse.pdf"},
+        {"type":"file","name":"Piano.pdf"},
+        {"type":"file","name":"Violon 1.pdf"},
+        {"type":"file","name":"Violon 2.pdf"},
+        {"type":"file","name":"Violon 3.pdf"},
+        {"type":"file","name":"Violon 4.pdf"},
+        {"type":"file","name":"Violoncelle 1.pdf"},
+        {"type":"file","name":"Violoncelle 2.pdf"}
+      ]},
+      {"type":"dir","name":"Version quatuor","content":[
+        {"type":"file","name":"Alto.pdf"},
+        {"type":"file","name":"Piano.pdf"},
+        {"type":"file","name":"Violoncelle.pdf"},
+        {"type":"file","name":"Violon.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 35","content":[
+      {"type":"dir","name":"Symphonie a 4","content":[
+        {"type":"file","name":"Conducteur.pdf"},
+        {"type":"file","name":"Percu.pdf"},
+        {"type":"file","name":"Piano 1.pdf"},
+        {"type":"file","name":"Piano 2.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 36","content":[
+      {"type":"file","name":"Sonatine.pdf"}
+    ]},
+    {"type":"dir","name":"Opus 37","content":[
+      {"type":"file","name":"Suite burlesque.pdf"}
+    ]},
+    {"type":"dir","name":"Opus 38","content":[
+      {"type":"dir","name":"Version piano violoncelle","content":[
+        {"type":"file","name":"Piano.pdf"},
+        {"type":"file","name":"VLC.pdf"}
+      ]},
+      {"type":"dir","name":"Version viola et harpe","content":[
+        {"type":"file","name":"Rapsodie hellenique Alto.pdf"},
+        {"type":"file","name":"Rapsodie hellenique Harpe.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 39","content":[
+      {"type":"file","name":"Piano.pdf"},
+      {"type":"file","name":"Vlc.pdf"}
+    ]},
+    {"type":"dir","name":"Opus 40","content":[
+      {"type":"file","name":"Sonate n 2.pdf"}
+    ]},
+    {"type":"dir","name":"Opus 41","content":[
+      {"type":"file","name":"Baryton.pdf"},
+      {"type":"file","name":"Piano.pdf"}
+    ]},
+    {"type":"dir","name":"Opus 42","content":[
+      {"type":"dir","name":"Sonate cor et piano version 1","content":[
+        {"type":"file","name":"Sonate cor.pdf"},
+        {"type":"file","name":"Sonate pour cor et piano.pdf"}
+      ]},
+      {"type":"dir","name":"Version 2010","content":[
+        {"type":"file","name":"Sonate cor version 2010.pdf"},
+        {"type":"file","name":"Sonate pour cor piano version 2010.pdf"}
+      ]},
+      {"type":"dir","name":"Version 2011","content":[
+        {"type":"file","name":"Sonate cor 2011.pdf"},
+        {"type":"file","name":"Sonate pour cor piano 2011.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 43","content":[
+      {"type":"dir","name":"N° 1","content":[
+        {"type":"dir","name":"Conducteur","content":[
+          {"type":"file","name":"Conducteur.pdf"}
+        ]},
+        {"type":"dir","name":"Cor","content":[
+          {"type":"file","name":"Cor.pdf"}
+        ]},
+        {"type":"dir","name":"Tb","content":[
+          {"type":"file","name":"Tuba.pdf"}
+        ]},
+        {"type":"dir","name":"Tp 1","content":[
+          {"type":"file","name":"Trompette Ut 1.pdf"}
+        ]},
+        {"type":"dir","name":"Tp 2","content":[
+          {"type":"file","name":"Trompette Ut 2.pdf"}
+        ]},
+        {"type":"dir","name":"Trb","content":[
+          {"type":"file","name":"Trombone.pdf"}
+        ]}
+      ]},
+      {"type":"dir","name":"N° 2","content":[
+        {"type":"dir","name":"Conducteur","content":[
+          {"type":"file","name":"Conducteur.pdf"}
+        ]},
+        {"type":"dir","name":"Cor","content":[
+          {"type":"file","name":"Cor.pdf"}
+        ]},
+        {"type":"dir","name":"Trombone","content":[
+          {"type":"file","name":"Trombone.pdf"}
+        ]},
+        {"type":"dir","name":"Trp 1","content":[
+          {"type":"file","name":"trp1.pdf"}
+        ]},
+        {"type":"dir","name":"Trp 2","content":[
+          {"type":"file","name":"trp2.pdf"}
+        ]},
+        {"type":"dir","name":"Tuba","content":[
+          {"type":"file","name":"Tuba.pdf"}
+        ]}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 44","content":[
+      {"type":"file","name":"Basson.pdf"},
+      {"type":"file","name":"Clarinette.pdf"},
+      {"type":"file","name":"Piano conducteur.pdf"}
+    ]},
+    {"type":"dir","name":"Opus 45","content":[
+      {"type":"dir","name":"Alt","content":[
+        {"type":"file","name":"Altos.pdf"}
+      ]},
+      {"type":"dir","name":"CB","content":[
+        {"type":"file","name":"Contrebasses.pdf"}
+      ]},
+      {"type":"dir","name":"Conducteur","content":[
+        {"type":"file","name":"Conducteur eng.pdf"}
+      ]},
+      {"type":"dir","name":"Percu 1","content":[
+        {"type":"file","name":"Percu 1.pdf"}
+      ]},
+      {"type":"dir","name":"Percu 2","content":[
+        {"type":"file","name":"Percu 2.pdf"}
+      ]},
+      {"type":"dir","name":"Percu 3","content":[
+        {"type":"file","name":"Percu 3.pdf"}
+      ]},
+      {"type":"dir","name":"Percu 4","content":[
+        {"type":"file","name":"Percu 4.pdf"}
+      ]},
+      {"type":"dir","name":"Percu 5","content":[
+        {"type":"file","name":"Percu 5.pdf"}
+      ]},
+      {"type":"dir","name":"V1","content":[
+        {"type":"file","name":"V1.pdf"}
+      ]},
+      {"type":"dir","name":"V2","content":[
+        {"type":"file","name":"V2.pdf"}
+      ]},
+      {"type":"dir","name":"VLC","content":[
+        {"type":"file","name":"VLC.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 46","content":[
+      {"type":"dir","name":"Cimaise VI","content":[
+        {"type":"file","name":"Alto.pdf"},
+        {"type":"file","name":"Basson.pdf"},
+        {"type":"file","name":"Clarinette.pdf"},
+        {"type":"file","name":"Conducteur.pdf"},
+        {"type":"file","name":"Contrbasse.pdf"},
+        {"type":"file","name":"Cor.pdf"},
+        {"type":"file","name":"Flute.pdf"},
+        {"type":"file","name":"Hautbois.pdf"},
+        {"type":"file","name":"Percu.pdf"},
+        {"type":"file","name":"Piano.pdf"},
+        {"type":"file","name":"Trombone.pdf"},
+        {"type":"file","name":"Trompette.pdf"},
+        {"type":"file","name":"Violon 1.pdf"},
+        {"type":"file","name":"Violon 2.pdf"},
+        {"type":"file","name":"Violoncelle.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 47","content":[
+      {"type":"file","name":"Cimaises V Version 1.pdf"},
+      {"type":"file","name":"Cimaises V version 2.pdf"}
+    ]},
+    {"type":"dir","name":"Opus 48","content":[
+      {"type":"dir","name":"Octuor","content":[
+        {"type":"dir","name":"Alto","content":[
+          {"type":"file","name":"Alt.pdf"}
+        ]},
+        {"type":"dir","name":"Basson","content":[
+          {"type":"file","name":"Basson.pdf"}
+        ]},
+        {"type":"dir","name":"Clarinette","content":[
+          {"type":"file","name":"Clarinette.pdf"}
+        ]},
+        {"type":"dir","name":"Conducteur","content":[
+          {"type":"file","name":"Conducteur.pdf"}
+        ]},
+        {"type":"dir","name":"Contrebasse","content":[
+          {"type":"file","name":"Contrebasses.pdf"}
+        ]},
+        {"type":"dir","name":"Cor","content":[
+          {"type":"file","name":"Cor.pdf"}
+        ]},
+        {"type":"dir","name":"Violon 1","content":[
+          {"type":"file","name":"Violon 1.pdf"}
+        ]},
+        {"type":"dir","name":"Violon 2","content":[
+          {"type":"file","name":"Violon 2.pdf"}
+        ]},
+        {"type":"dir","name":"Violoncelle","content":[
+          {"type":"file","name":"Violoncelle.pdf"}
+        ]}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 49","content":[
+      {"type":"dir","name":"Trio","content":[
+        {"type":"file","name":"Piano.pdf"},
+        {"type":"file","name":"Violoncelle.pdf"},
+        {"type":"file","name":"Violon.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 50","content":[
+      {"type":"dir","name":"Cimaises 6","content":[
+        {"type":"file","name":"Cimaises 6.pdf"}
+      ]},
+      {"type":"dir","name":"Fantaisie dégingandée","content":[
+        {"type":"dir","name":"Altos","content":[
+          {"type":"file","name":"Altos.pdf"}
+        ]},
+        {"type":"dir","name":"Cloches tubes","content":[
+          {"type":"file","name":"Cloches.pdf"}
+        ]},
+        {"type":"dir","name":"Conducteur","content":[
+          {"type":"file","name":"Conducteur.pdf"}
+        ]},
+        {"type":"dir","name":"Contrebasses","content":[
+          {"type":"file","name":"Contrbasses.pdf"}
+        ]},
+        {"type":"dir","name":"Glockenspiel","content":[
+          {"type":"file","name":"Glockenspiel.pdf"}
+        ]},
+        {"type":"dir","name":"Marimba","content":[
+          {"type":"file","name":"Marimba.pdf"}
+        ]},
+        {"type":"dir","name":"Percu","content":[
+          {"type":"file","name":"percu.pdf"}
+        ]},
+        {"type":"dir","name":"Piano","content":[
+          {"type":"file","name":"Piano.pdf"}
+        ]},
+        {"type":"dir","name":"V 1","content":[
+          {"type":"file","name":"V1.pdf"}
+        ]},
+        {"type":"dir","name":"V 2","content":[
+          {"type":"file","name":"V2.pdf"}
+        ]},
+        {"type":"dir","name":"Vlc","content":[
+          {"type":"file","name":"Vlc.pdf"}
+        ]}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 51","content":[
+      {"type":"file","name":"Alto eng.pdf"},
+      {"type":"file","name":"Conducteur eng.pdf"},
+      {"type":"file","name":"violon 1 eng.pdf"},
+      {"type":"file","name":"violon 2 eng.pdf"},
+      {"type":"file","name":"violoncelle eng.pdf"}
+    ]},
+    {"type":"dir","name":"Opus 52","content":[
+      {"type":"dir","name":"N° 1","content":[
+        {"type":"file","name":"Basson eng.pdf"},
+        {"type":"file","name":"Clarinette eng.pdf"},
+        {"type":"file","name":"Conducteur.pdf"},
+        {"type":"file","name":"Cor eng.pdf"},
+        {"type":"file","name":"Flute eng.pdf"},
+        {"type":"file","name":"Htb eng.pdf"},
+        {"type":"file","name":"Piano eng.pdf"},
+        {"type":"file","name":"Saxophone eng.pdf"},
+        {"type":"file","name":"Trombone eng.pdf"},
+        {"type":"file","name":"Trompette ut eng.pdf"}
+      ]},
+      {"type":"dir","name":"N° 2","content":[
+        {"type":"file","name":"Basson.pdf"},
+        {"type":"file","name":"Cl.pdf"},
+        {"type":"file","name":"Cor.pdf"},
+        {"type":"file","name":"Flute.pdf"},
+        {"type":"file","name":"Genese conducteur.pdf"},
+        {"type":"file","name":"HTB.pdf"},
+        {"type":"file","name":"Piano.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 53","content":[
+      {"type":"file","name":"Arachné.pdf"}
+    ]},
+    {"type":"dir","name":"Opus 54","content":[
+      {"type":"file","name":"Altos.pdf"},
+      {"type":"file","name":"Basson.pdf"},
+      {"type":"file","name":"CB.pdf"},
+      {"type":"file","name":"Clarinette.pdf"},
+      {"type":"file","name":"conducteur.pdf"},
+      {"type":"file","name":"Cor.pdf"},
+      {"type":"file","name":"Flute.pdf"},
+      {"type":"file","name":"Hautbois.pdf"},
+      {"type":"file","name":"percu.pdf"},
+      {"type":"file","name":"Piano.pdf"},
+      {"type":"file","name":"Trombone.pdf"},
+      {"type":"file","name":"Trompette.pdf"},
+      {"type":"file","name":"Violon 1.pdf"},
+      {"type":"file","name":"Violon 2.pdf"},
+      {"type":"file","name":"Violoncelles fin 1 eng.pdf"}
+    ]},
+    {"type":"dir","name":"Opus 55","content":[
+      {"type":"dir","name":"Irminsul","content":[
+        {"type":"file","name":"Conducteur.pdf"},
+        {"type":"file","name":"Irminsul Basson.pdf"},
+        {"type":"file","name":"Irminsul Clarinette.pdf"},
+        {"type":"file","name":"Irminsul Cor.pdf"},
+        {"type":"file","name":"Irminsul Piano.pdf"}
+      ]}
+    ]},
+    {"type":"dir","name":"Opus 56","content":[
+      {"type":"dir","name":"Ruisseau","content":[
+        {"type":"file","name":"Ruisseau.pdf"}
+      ]}
+    ]}
+  ]}
 ]

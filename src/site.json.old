@@ -1,0 +1,36 @@
+[
+    {
+        "type": "dir",
+        "name": "folder1",
+        "content": [
+            {
+                "type": "dir",
+                "name": "sub1",
+                "content": [
+                    {
+                        "type": "file",
+                        "name": "file1.js"
+                    },
+                    {
+                        "type": "file",
+                        "name": "file2.js"
+                    }
+                ]
+            },
+            {
+                "type": "dir",
+                "name": "sub2",
+                "content": [
+                    {
+                        "type": "file",
+                        "name": "file1.js"
+                    },
+                    {
+                        "type": "file",
+                        "name": "file2.js"
+                    }
+                ]
+            }
+        ]
+    }
+]
