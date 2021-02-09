@@ -1,0 +1,208 @@
+import './App.css';
+import React, { useState } from "react";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    Redirect,
+    useRouteMatch,
+    useLocation,
+} from "react-router-dom";
+import datas from "./site.json";
+import { Document, Page } from 'react-pdf';
+import { pdfjs } from 'react-pdf';
+import { CSSTransition } from "react-transition-group";
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+
+function App() {
+    return (
+        <div>
+            {<RecursiveExample />}
+        </div>
+    )
+}
+
+function RecursiveExample() {
+    return (
+        <Router>
+            <Switch>
+                <Route path="/browse">
+                    <FileBrowser />
+                </Route>
+                <Route exact path="/">
+                    <Redirect to={`/browse/sitePdfs`} />
+                </Route>
+            </Switch>
+        </Router>
+    );
+}
+
+function FileBrowser() {
+    let [isActive, setActive] = useState(true);
+
+    function toggleActive(newUrl) {
+        setActive(false);
+        setTimeout(() => {
+            window.history.pushState(null, null, newUrl);
+            window.location.reload();
+            setActive(true);
+        }, 300);
+    }
+    return (
+        <CSSTransition
+        in={isActive}
+        appear={true}
+        timeout={300}
+        classNames="btns"
+        >
+            <div className="browse-wrapper">
+                <Browse
+                    activateTransition={toggleActive}
+                />
+            </div>
+        </CSSTransition>
+    );
+}
+
+function Browse(props) {
+    console.log(props)
+    let { url } = useRouteMatch();
+    let query = new URLSearchParams(useLocation().search);
+    let isFile = query.has("file");
+    let actualPath = useLocation().pathname;
+    let jsonPath = [...datas];
+    let dirPath = url.split("/");
+    dirPath = dirPath.slice(2);
+    let backButton = null;
+
+    if (dirPath.length > 1) {
+        let tmp = url.split("/");
+        tmp.pop();
+        tmp = tmp.join("/");
+        backButton = <Link to={tmp}><button>Back</button></Link>
+    }
+
+    try {
+        for (let i = 0; i < dirPath.length; i++) {
+            jsonPath = jsonPath.find(item => item.name === dirPath[i]).content;
+        }
+
+    } catch (err) {
+        return <h1>File not found / Fichier non trouvé</h1>
+    }
+
+
+
+    if (!isFile) {
+        let buttonClass = jsonPath.length > 20 ? "small-btn" : jsonPath.length > 8 ? "medium-btn" : "big-btn";
+        let buttons = jsonPath.map(item => {
+            if (item.type === "dir") {
+                return (
+                    <button onClick={() => props.activateTransition(`${url}/${item.name}`)} className={buttonClass}>{item.name}</button>
+                );
+            } else {
+                return (
+                    <button onClick={() => props.activateTransition(`${url}?file=${item.name}`)} className={buttonClass}>{item.name}</button>
+                );
+            }
+        });
+        let buttonWrapper = <div className="btn-wrapper">
+            {backButton}
+            {buttons}
+        </div>
+        return (
+            <div className="app-wrapper">
+                {actualPath === url && buttonWrapper}
+                    <Route path={`${url}/:id`}>
+                        <Browse 
+                            activateTransition={props.activateTransition}
+                        />
+                    </Route>
+            </div>
+        );
+    } else {
+        let buttonClass = jsonPath.length > 20 ? "small-btn" : jsonPath.length > 8 ? "medium-btn" : "big-btn";
+        let buttons = jsonPath.map(item => {
+            return (
+                <Link to={`${url}?file=${item.name}`}><button className={buttonClass} >{item.name}</button></Link>
+            );
+        });
+
+        let buttonWrapper = <div className="btn-wrapper">
+            {backButton}
+            {buttons}
+        </div>
+        let fName = query.get("file");
+        let isDisplayed = actualPath === url ? true : false;
+        console.log(`dirPath : ${dirPath}`)
+        console.log(`url : ${url}`)
+        console.log(`isDisplayed : ${isDisplayed}`)
+        return (
+            <div className="app-wrapper">
+                {isDisplayed && buttonWrapper}
+                {isDisplayed && <Displayer fName={`${process.env.PUBLIC_URL}/${dirPath.join("/")}/${fName}`} />}
+                    <Route path={`${url}/:id`}>
+                        <Browse />
+                    </Route>
+            </div>
+        )
+    }
+}
+
+function Displayer(props) {
+    const [numPages, setNumPages] = useState(null);
+    const [pageNumber, setPageNumber] = useState(1);
+
+    function onDocumentLoadSuccess({ numPages }) {
+        setNumPages(numPages);
+        setPageNumber(1);
+    }
+
+    function changePage(offset) {
+        setPageNumber(prevPageNumber => prevPageNumber + offset);
+    }
+
+    function previousPage() {
+        changePage(-1);
+    }
+
+    function nextPage() {
+        changePage(1);
+    }
+
+    return (
+        <>
+            <Document
+                file={props.fName}
+                onLoadSuccess={onDocumentLoadSuccess}
+            >
+                <Page pageNumber={pageNumber}
+                    scale={1}
+                    height={document.documentElement.clientHeight} />
+            </Document>
+            <div>
+                <p>
+                    Page {pageNumber || (numPages ? 1 : '--')} of {numPages || '--'}
+                </p>
+                <button
+                    type="button"
+                    disabled={pageNumber <= 1}
+                    onClick={previousPage}
+                >
+                    Previous
+        </button>
+                <button
+                    type="button"
+                    disabled={pageNumber >= numPages}
+                    onClick={nextPage}
+                >
+                    Next
+        </button>
+                <h1>{props.fName}</h1>
+            </div>
+        </>
+    );
+}
+
+export default App;

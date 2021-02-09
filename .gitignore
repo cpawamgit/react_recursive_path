@@ -11,6 +11,9 @@
 # production
 /build
 
+#pdf ressources
+/public/sitePdfs
+
 # misc
 .DS_Store
 .env.local

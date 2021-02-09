@@ -8,11 +8,12 @@ import {
   Redirect,
   useRouteMatch,
   useLocation,
-  useParams
+  useHistory
 } from "react-router-dom";
 import datas from "./site.json";
 import { Document, Page } from 'react-pdf';
 import { pdfjs } from 'react-pdf';
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 function App() {
@@ -26,35 +27,54 @@ function App() {
 function RecursiveExample() {
   return (
     <Router>
-      <Switch>
-        <Route path="/browse">
-          <Browse />
-        </Route>
-        <Route exact path="/">
-          <Redirect to={`/browse/sitePdfs`} />
-        </Route>
-      </Switch>
+          <Switch>
+            <Route path="/browse">
+              <FileBrowser/>
+            </Route>
+            <Route exact path="/">
+              <Redirect to={`/browse/sitePdfs`} />
+            </Route>
+          </Switch>
     </Router>
   );
 }
 
+function FileBrowser() {
+  return (
+    <div className="browse-wrapper">
+      {console.log("FileBrowser")}
+      <Browse />
+    </div>
+  );
+}
+
+
+
 function Browse(params) {
-  let { url, path } = useRouteMatch();
-  let { id } = useParams();
-  let query = new URLSearchParams(useLocation().search);
+  let location = useLocation();
+  console.log(location)
+  let history = useHistory();
+  let { url } = useRouteMatch();
+  let query = new URLSearchParams(location.search);
   let isFile = query.has("file");
-  let actualPath = useLocation().pathname;
+  let actualPath = location.pathname;
   let jsonPath = [...datas];
   let dirPath = url.split("/");
   dirPath = dirPath.slice(2);
   let backButton = null;
+  let buttonClass = null;
 
+  function goToLink(params) {
+  
+    history.push(params);
+  }
+  /*
   if (dirPath.length > 1) {
     let tmp = url.split("/");
     tmp.pop();
     tmp = tmp.join("/");
-    backButton = <button><Link to={tmp}>Back</Link></button>
-  }
+    backButton = <Link className={buttonClass} to={tmp}><button>Back</button></Link>
+  }*/
 
   try {
     for (let i = 0; i < dirPath.length; i++) {
@@ -68,43 +88,67 @@ function Browse(params) {
 
 
   if (!isFile) {
+    buttonClass = jsonPath.length > 20 ? "small-btn" : jsonPath.length > 8 ? "medium-btn" : "big-btn";
     let buttons = jsonPath.map(item => {
       if (item.type === "dir") {
         return (
-          <button><Link to={`${url}/${item.name}`}>{item.name}</Link></button>
+          <Link key={`${item.name}`} to={`${url}/${item.name}`}><button className={buttonClass}>{item.name}</button></Link>
         );
       } else {
         return (
-          <button><Link to={`${url}?file=${item.name}`}>{item.name}</Link></button>
+          <Link key={`${item.name}`} to={`${url}?file=${item.name}`}><button className={buttonClass}>{item.name}</button></Link>
         );
       }
     });
+    if (dirPath.length > 1) {
+      let tmp = url.split("/");
+      tmp.pop();
+      tmp = tmp.join("/");
+      backButton = <Link to={tmp}><button className={buttonClass}>Back</button></Link>
+    }
+    let buttonWrapper = <div className="btn-wrapper">
+      {backButton}
+      {buttons}
+    </div>
     return (
-      <div>
-        {actualPath === url && buttons}
-        {actualPath === url && backButton}
-        <Switch>
-          <Route path={`${url}/:id`}>
-            <Browse />
-          </Route>
+      <div className="app-wrapper">
+        {actualPath === url && buttonWrapper}
+        <TransitionGroup>
+          <CSSTransition
+          key={location.key}
+          classNames="btns"
+          timeout={300}
+          appear={true}
+          >
+        <Switch location={location}>
+          <Route path={`${url}/:id`} children={<Browse/>}/>
         </Switch>
+        </CSSTransition>
+        </TransitionGroup>
       </div>
     );
   } else {
+    buttonClass = jsonPath.length > 20 ? "small-btn" : jsonPath.length > 8 ? "medium-btn" : "big-btn";
     let buttons = jsonPath.map(item => {
       return (
-        <button><Link to={`${url}?file=${item.name}`}>{item.name}</Link></button>
+        <Link key={`${item.name}`} to={`${url}?file=${item.name}`}><button className={buttonClass} >{item.name}</button></Link>
       );
-    })
+    });
+    if (dirPath.length > 1) {
+      let tmp = url.split("/");
+      tmp.pop();
+      tmp = tmp.join("/");
+      backButton = <Link to={tmp}><button className={buttonClass}>Back</button></Link>
+    }
+    let buttonWrapper = <div className="btn-wrapper">
+      {backButton}
+      {buttons}
+    </div>
     let fName = query.get("file");
     let isDisplayed = actualPath === url ? true : false;
-    console.log(`dirPath : ${dirPath}`)
-    console.log(`url : ${url}`)
-    console.log(`isDisplayed : ${isDisplayed}`)
     return (
-      <div>
-        {isDisplayed && buttons}
-        {isDisplayed && backButton}
+      <div className="app-wrapper">
+        {isDisplayed && buttonWrapper}
         {isDisplayed && <Displayer fName={`${process.env.PUBLIC_URL}/${dirPath.join("/")}/${fName}`} />}
         <Switch>
           <Route path={`${url}/:id`}>
@@ -144,7 +188,8 @@ function Displayer(props) {
         onLoadSuccess={onDocumentLoadSuccess}
       >
         <Page pageNumber={pageNumber}
-          scale={0.8} />
+          scale={1}
+          height={document.documentElement.clientHeight} />
       </Document>
       <div>
         <p>
